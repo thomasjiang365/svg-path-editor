@@ -556,6 +556,18 @@
                 {{image.opacity}}
             </div>
         </div>
+
+        <div mat-menu-item [disableRipple]="true" (click)="$event.stopPropagation()">
+            <mat-icon>rotate_right</mat-icon>
+            <ng-container>Rotation</ng-container>
+            <div style="display:inline-block; width:180px;">
+                <mat-slider min="0" max="360" step="1" style="margin:0 16px; min-width:100px" color="accent">
+                    <input matSliderThumb [(ngModel)]="image.angle">
+                </mat-slider>
+                {{image.angle}}°
+            </div>
+        </div>
+
         <button mat-menu-item (click)="image.preserveAspectRatio = !image.preserveAspectRatio; $event.stopPropagation()">
             <mat-icon>aspect_ratio</mat-icon>
             <ng-container>Toggle Preserve Aspect Ratio</ng-container>

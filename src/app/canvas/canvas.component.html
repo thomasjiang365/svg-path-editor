@@ -55,6 +55,7 @@
                 [attr.height]="abs(im.y1-im.y2)"
                 [attr.preserveAspectRatio]="im.preserveAspectRatio ? 'xMidYMid meet':'none'"
                 [style.opacity]="im.opacity"
+                [attr.transform]="'rotate(' + (im.angle || 0) + ',' + (min(im.x1,im.x2) + abs(im.x2-im.x1)/2) + ',' + (min(im.y1,im.y2) + abs(im.y2-im.y1)/2) + ')'"
             />
         </ng-container>
     </ng-container>
@@ -128,7 +129,9 @@
     </ng-container>
 
     <ng-container *ngIf="editImages && !preview">
-        <svg:g *ngFor="let im of images" [class.focused-image]="im===focusedImage">
+        <svg:g *ngFor="let im of images" 
+            [class.focused-image]="im===focusedImage"
+            [attr.transform]="'rotate(' + (im.angle || 0) + ',' + (min(im.x1,im.x2) + abs(im.x2-im.x1)/2) + ',' + (min(im.y1,im.y2) + abs(im.y2-im.y1)/2) + ')'">
             <svg:rect  class="image-control move"
                 [attr.x]="min(im.x1,im.x2)"
                 [attr.y]="min(im.y1,im.y2)"

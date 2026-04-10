@@ -3,6 +3,7 @@ export interface Image {
     y1: number;
     x2: number;
     y2: number;
+    angle: number;
     preserveAspectRatio: boolean;
     opacity: number;
     data: string;

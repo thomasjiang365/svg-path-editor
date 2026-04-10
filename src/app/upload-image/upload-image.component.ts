@@ -16,6 +16,7 @@ export class UploadImageDialogComponent {
   y = '0';
   width = '20';
   height = '20';
+  angle = '0';
   preserveAspectRatio = true;
 
   constructor(
@@ -46,6 +47,7 @@ export class UploadImageDialogComponent {
       data: this.data,
       x1: parseFloat(this.x),
       y1: parseFloat(this.y),
+      angle: parseFloat(this.angle),
       x2: parseFloat(this.x) + parseFloat(this.width),
       y2: parseFloat(this.y) + parseFloat(this.height),
       preserveAspectRatio: this.preserveAspectRatio,
